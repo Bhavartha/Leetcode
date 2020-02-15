@@ -1,0 +1,12 @@
+class Solution:
+    def generate(self, numRows: int) -> List[List[int]]:
+        if numRows==0:
+            return []
+        pascal=[[1]]
+        for i in range(numRows-1):
+            temp=[]
+            p=[0]+pascal[-1]+[0]
+            for _ in range(len(p)-1):
+                temp.append(p[_]+p[_+1])
+            pascal.append(temp)
+        return pascal

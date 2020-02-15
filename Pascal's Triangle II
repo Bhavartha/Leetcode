@@ -1,0 +1,10 @@
+class Solution:
+    def getRow(self, rowIndex: int) -> List[int]:
+        pascal=[[1]]
+        for i in range(rowIndex):
+            temp=[]
+            p=[0]+pascal[-1]+[0]
+            for _ in range(len(p)-1):
+                temp.append(p[_]+p[_+1])
+            pascal.append(temp)
+        return pascal[rowIndex]

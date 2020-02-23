@@ -1,0 +1,15 @@
+class Solution:
+    def shortestToChar(self, S: str, C: str) -> List[int]:
+        index=float('-inf')
+        result=[None]*len(S)
+        for i in range(len(S)):
+            if S[i]==C:
+                index=i
+            result[i]=i-index
+        index=float('inf')
+        for i in range(len(S)-1,-1,-1):
+            if S[i]==C:
+                index=i
+            result[i]=min(index-i,result[i])
+        return result
+                

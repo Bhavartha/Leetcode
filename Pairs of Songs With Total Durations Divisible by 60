@@ -1,0 +1,18 @@
+class Solution:
+    def numPairsDivisibleBy60(self, time: List[int]) -> int:
+        
+        mylist = [0]*60
+        
+        for t in time:
+            mylist[t%60]+=1
+            
+        count=0
+        
+        for i in range(1,30):
+            count += mylist[i]*mylist[60-i]
+        
+        count+= mylist[0]*(mylist[0]-1)//2
+        count+= mylist[30]*(mylist[30]-1)//2
+        
+        return count
+        

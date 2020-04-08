@@ -11,3 +11,13 @@ class Solution:
         c =  distance(p[2][0],p[1][0],p[2][1],p[1][1])
         
         return (a+b)>c and (a+c)>b and (b+c)>a
+
+OR
+
+class Solution:
+    def isBoomerang(self, p: List[List[int]]) -> bool:
+
+        slope1 = (p[1][1]-p[0][1])*(p[1][0]-p[2][0])
+        slope2 = (p[1][1]-p[2][1])*(p[1][0]-p[0][0])
+        
+        return slope1!=slope2

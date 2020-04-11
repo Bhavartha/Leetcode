@@ -1,0 +1,24 @@
+class Solution:
+    def minRemoveToMakeValid(self, string: str) -> str:
+        string=list(string)
+        op = 0
+        cl = 0
+        for i,s in enumerate(string):
+            if s=='(':
+                op+=1
+            elif s==')':
+                cl+=1
+            if cl>op:
+                cl-=1
+                string[i]=''
+        op = 0
+        cl = 0
+        for i,s in enumerate(string[::-1]):
+            if s=='(':
+                op+=1
+            elif s==')':
+                cl+=1
+            if cl<op:
+                op-=1
+                string[-i-1]=''
+        return ''.join(string)

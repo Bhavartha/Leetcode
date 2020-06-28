@@ -1,0 +1,11 @@
+class Solution:
+    def shortestPalindrome(self, string: str) -> str:
+        if len(string)<2:
+            return string
+        end=len(string)
+        char=string[0]
+        while True:
+            end = string.rfind(char,0,end)
+            if string[:end+1]==string[:end+1][::-1]:
+                break
+        return string[end+1:][::-1]+string

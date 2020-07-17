@@ -1,0 +1,2 @@
+# Write your MySQL query statement below
+select distinct p.Email from Person p, Person q where p.Email=q.Email and p.id<>q.id

@@ -1,8 +1,7 @@
 class Solution {
 public:
     vector<int> numberOfLines(vector<int>& widths, string S) {
-        int lines=1,ans=0;
-        if(S=="") return {0,0};        
+        int lines=1,ans=0;    
         for(auto i:S){
             ans+=widths[i-'a'];
             if(ans>100){

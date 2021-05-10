@@ -1,3 +1,28 @@
+/* O(n) Time && O(1) Space */
+
+class Solution {
+public:
+    vector<int> productExceptSelf(vector<int>& nums) {
+        int n=nums.size();
+        int prod=1;
+        int zc=0;
+        for(auto &n:nums){
+            if(n!=0) prod*=n;
+            else zc++;
+        }
+        for(auto &n:nums){
+            if(zc>1) n=0;
+            else if(n==0 && zc==1) n=prod;
+            else if(zc==1) n=0;
+            else n=prod/n;
+        }
+        return nums;
+    }
+};
+
+
+/* O(n) Time && O(n) Space */
+
 class Solution {
 public:
     vector<int> productExceptSelf(vector<int>& nums) {

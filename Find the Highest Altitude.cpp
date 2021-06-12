@@ -9,3 +9,13 @@ public:
         return m;
     }
 };
+
+// OR
+
+class Solution {
+public:
+    int largestAltitude(vector<int>& g) {
+        partial_sum(g.begin(),g.end(),g.begin());
+        return max(0,*max_element(g.begin(),g.end()));
+    }
+};
